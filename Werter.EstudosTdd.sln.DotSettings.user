@@ -1,8 +1,9 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
 	<s:String x:Key="/Default/Environment/Highlighting/HighlightingSourceSnapshotLocation/@EntryValue">/home/werter/.cache/JetBrains/Rider2020.3/resharper-host/temp/Rider/vAny/CoverageData/_Werter.EstudosTdd.-2022989107/Snapshot/snapshot.utdcvr</s:String>
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=24938203_002Db588_002D4692_002D8e3c_002Db1a24ac4ba5f/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=44107dab_002D80da_002D4cfd_002D9267_002D02f6062b89f0/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from Solution" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;Solution /&gt;
 &lt;/SessionState&gt;</s:String>
+	
 	
 	
 	<s:Boolean x:Key="/Default/UnloadedProject/UnloadedProjects/=2531ed5b_002Db901_002D435e_002D88ea_002Dc5708dc99200_0023Werter_002EEstudosTdd_002EFeatures_002ETestes/@EntryIndexedValue">True</s:Boolean>
