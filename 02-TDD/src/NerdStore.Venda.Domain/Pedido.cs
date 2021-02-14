@@ -7,11 +7,12 @@ using NerdStore.Core.DomainObjects;
 
 namespace NerdStore.Venda.Domain
 {
-    public sealed class Pedido
+    public sealed class Pedido : Entity, IAggregateRoot
     {
         public const int QUANTIDADE_MAXIMA_ITENS = 15;
         public const int QUANTIDADE_MINIMA_ITENS = 1;
         private readonly Collection<PedidoItem> _itens;
+
         public IReadOnlyCollection<PedidoItem> Itens => _itens;
         public decimal ValorTotal => ObterValorTotal();
         public Voucher Voucher { get; private set; }

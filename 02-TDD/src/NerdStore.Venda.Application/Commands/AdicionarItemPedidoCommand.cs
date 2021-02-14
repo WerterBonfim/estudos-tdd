@@ -1,11 +1,12 @@
 using System;
 using FluentValidation;
+using MediatR;
 using NerdStore.Core.Messages;
 using NerdStore.Venda.Domain;
 
 namespace NerdStore.Venda.Application.Commands
 {
-    public class AdicionarItemPedidoCommand : Command
+    public class AdicionarItemPedidoCommand : Command, IRequest<Unit>
     {
         public string Nome { get; set; }
 
