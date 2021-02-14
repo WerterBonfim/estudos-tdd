@@ -28,23 +28,35 @@ namespace NerdStore.Venda.Application.Commands
             var item = new PedidoItem(command.ProdutoId, command.Nome, command.Quantidade, command.ValorUnitario);
 
             if (pedido == null)
-            {
-                pedido = new Pedido(command.ClienteId);
-                pedido.AdicionarItem(item);
-
-                _pedidoRepository.Adicionar(pedido);
-            }
+                pedido = CriarNovoPedido(command, item);
             else
-            {
-                var itemJaExisteNoPedido = pedido.Contem(item);
-                pedido.AdicionarItem(item);
+                AtualizarItem(pedido, item);
 
-                if (itemJaExisteNoPedido) _pedidoRepository.AtualizarItem(item);
-                else _pedidoRepository.AdicionarItem(item);
+            return await EfetuarCommit(pedido, item);
+        }
 
-                _pedidoRepository.Atualizar(pedido);
-            }
+        private Pedido CriarNovoPedido(AdicionarItemPedidoCommand command, PedidoItem item)
+        {
+            var pedido = new Pedido(command.ClienteId);
+            pedido.AdicionarItem(item);
 
+            _pedidoRepository.Adicionar(pedido);
+            return pedido;
+        }
+
+        private void AtualizarItem(Pedido pedido, PedidoItem item)
+        {
+            var itemJaExisteNoPedido = pedido.Contem(item);
+            pedido.AdicionarItem(item);
+
+            if (itemJaExisteNoPedido) _pedidoRepository.AtualizarItem(item);
+            else _pedidoRepository.AdicionarItem(item);
+
+            _pedidoRepository.Atualizar(pedido);
+        }
+
+        private async Task<bool> EfetuarCommit(Pedido pedido, PedidoItem item)
+        {
             var evento = new PedidoItemAdicionadoEvent(
                 pedido.ClienteId,
                 pedido.Id,
