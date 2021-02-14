@@ -1,6 +1,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 using MediatR;
+using NerdStore.Core.DomainObjects;
 using NerdStore.Venda.Application.Events;
 using NerdStore.Venda.Domain;
 
@@ -22,7 +23,10 @@ namespace NerdStore.Venda.Application.Commands
         public async Task<bool> Handle(AdicionarItemPedidoCommand command, CancellationToken cancellationToken)
         {
             if (!command.EstaValido())
+            {
+                await NotificarErros(command);
                 return false;
+            }
 
             var pedido = await _pedidoRepository.ObterPedidoRascunho(command.ClienteId);
             var item = new PedidoItem(command.ProdutoId, command.Nome, command.Quantidade, command.ValorUnitario);
@@ -33,6 +37,15 @@ namespace NerdStore.Venda.Application.Commands
                 AtualizarItem(pedido, item);
 
             return await EfetuarCommit(pedido, item);
+        }
+
+        private async Task NotificarErros(AdicionarItemPedidoCommand command)
+        {
+            foreach (var error in command.Validacoes.Errors)
+            {
+                var notification = new DomainNotification(command.MessageType, error.ErrorMessage);
+                await _mediator.Publish(notification, CancellationToken.None);
+            }
         }
 
         private Pedido CriarNovoPedido(AdicionarItemPedidoCommand command, PedidoItem item)

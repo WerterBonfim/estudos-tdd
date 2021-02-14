@@ -152,5 +152,32 @@ namespace NerdStore.Venda.Application.Testes.Pedidos
                 .Verify(x =>
                     x.UnitOfWork.Commit(), Times.Once);
         }
+
+        [Fact(DisplayName = "Deve notificar erros para um command inválido")]
+        [Trait("Handler", "Validacao")]
+        public async Task DeveNotificarErrosParaUmCommandInvalido()
+        {
+            // Arrange
+            var command = new AdicionarItemPedidoCommand(
+                Guid.Empty, Guid.Empty, "", 0, 0);
+
+
+            var mocker = new AutoMocker();
+            var pedidoHandler = mocker.CreateInstance<PedidoCommandHandler>();
+
+            // Act
+
+            var resultado = await pedidoHandler.Handle(command, CancellationToken.None);
+
+            // Assert
+
+            resultado.Should().BeFalse();
+
+            mocker.GetMock<IMediator>()
+                .Verify(x =>
+                    x.Publish(It.IsAny<INotification>(), CancellationToken.None), Times.Exactly(5));
+            
+            
+        }
     }
 }
