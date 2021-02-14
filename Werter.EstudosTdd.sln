@@ -24,6 +24,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.Venda.Domain", "0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.Core", "02-TDD\src\NerdStore.Core\NerdStore.Core.csproj", "{FDFEBE01-B110-4EF7-A70C-7F5A374DA640}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.Venda.Application", "02-TDD\src\NerdStore.Venda.Application\NerdStore.Venda.Application.csproj", "{DFCC0A39-03C5-45E0-AAE6-F4722EC220D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NerdStore.Venda.Application.Testes", "02-TDD\tests\NerdStore.Venda.Application.Testes\NerdStore.Venda.Application.Testes.csproj", "{18002535-1C84-4720-96E1-C324331545C5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +44,8 @@ Global
 		{BB45145E-9DC7-4715-8BED-C188464B7736} = {95DBB31C-BEEF-40F3-867F-07036F1B2D1D}
 		{CE89214C-48CB-4AE6-9DD7-0DA222276E04} = {9B9B1CAE-E2F8-4A69-BC54-2E9B0740FF8B}
 		{FDFEBE01-B110-4EF7-A70C-7F5A374DA640} = {9B9B1CAE-E2F8-4A69-BC54-2E9B0740FF8B}
+		{DFCC0A39-03C5-45E0-AAE6-F4722EC220D0} = {9B9B1CAE-E2F8-4A69-BC54-2E9B0740FF8B}
+		{18002535-1C84-4720-96E1-C324331545C5} = {95DBB31C-BEEF-40F3-867F-07036F1B2D1D}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F8CAF78D-3F45-4810-82AE-EF04DC37B45F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -70,5 +76,13 @@ Global
 		{FDFEBE01-B110-4EF7-A70C-7F5A374DA640}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FDFEBE01-B110-4EF7-A70C-7F5A374DA640}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FDFEBE01-B110-4EF7-A70C-7F5A374DA640}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DFCC0A39-03C5-45E0-AAE6-F4722EC220D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DFCC0A39-03C5-45E0-AAE6-F4722EC220D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DFCC0A39-03C5-45E0-AAE6-F4722EC220D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DFCC0A39-03C5-45E0-AAE6-F4722EC220D0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18002535-1C84-4720-96E1-C324331545C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18002535-1C84-4720-96E1-C324331545C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18002535-1C84-4720-96E1-C324331545C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18002535-1C84-4720-96E1-C324331545C5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
