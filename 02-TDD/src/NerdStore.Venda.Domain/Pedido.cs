@@ -146,5 +146,10 @@ namespace NerdStore.Venda.Domain
 
             return validacao;
         }
+
+        public bool Contem(PedidoItem item)
+        {
+            return _itens.Contains(item);
+        }
     }
 }

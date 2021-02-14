@@ -11,5 +11,7 @@ namespace NerdStore.Venda.Domain
         Task<Pedido> ObterPedidoRascunho(Guid clienteId);
         Task AdicionarItem(PedidoItem item);
         Task Atualizar(Pedido pedido);
+
+        Task AtualizarItem(PedidoItem item);
     }
 }

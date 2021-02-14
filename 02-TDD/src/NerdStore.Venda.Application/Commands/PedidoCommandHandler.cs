@@ -36,12 +36,15 @@ namespace NerdStore.Venda.Application.Commands
             }
             else
             {
+                var itemJaExisteNoPedido = pedido.Contem(item);
                 pedido.AdicionarItem(item);
-            
-                _pedidoRepository.AdicionarItem(item);
+
+                if (itemJaExisteNoPedido) _pedidoRepository.AtualizarItem(item);
+                else _pedidoRepository.AdicionarItem(item);
+
                 _pedidoRepository.Atualizar(pedido);
             }
-            
+
             var evento = new PedidoItemAdicionadoEvent(
                 pedido.ClienteId,
                 pedido.Id,
@@ -56,9 +59,5 @@ namespace NerdStore.Venda.Application.Commands
 
             return await _pedidoRepository.UnitOfWork.Commit();
         }
-        
-        
-        
-      
     }
 }
