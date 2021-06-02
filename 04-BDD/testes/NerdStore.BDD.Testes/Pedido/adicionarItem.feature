@@ -4,7 +4,7 @@ Funcionalidade: Pedido - Adicionar Item ao Carrinho
     Para que eu posso comprá-lo posteriormente
 
 
-Cenário: Adicionar item com sucesso a um novo pedido
+Cenário: Adicionar item com sucesso a um novo pedidof
 Dado Que um produto esteja na vitrine
 E Esteja disponivel no estoque
 E O usuario esteja logado

@@ -11,16 +11,22 @@ namespace NerdStore.Venda.Domain
     {
         public const int QUANTIDADE_MAXIMA_ITENS = 15;
         public const int QUANTIDADE_MINIMA_ITENS = 1;
+        
         private readonly Collection<PedidoItem> _itens;
 
-        public IReadOnlyCollection<PedidoItem> Itens => _itens;
+        public int Codigo { get; private set; }
         public decimal ValorTotal => ObterValorTotal();
         public Voucher Voucher { get; private set; }
         public Guid ClienteId { get; }
         public PedidoStatus Status { get; private set; }
         public bool VoucherUtilizado { get; private set; }
         public decimal ValorDeDesconto { get; private set; }
+        public IReadOnlyCollection<PedidoItem> Itens => _itens;
 
+        public Pedido()
+        {
+            
+        }
 
         public Pedido(Guid clienteId)
         {

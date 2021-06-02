@@ -3,13 +3,22 @@ using NerdStore.Core.DomainObjects;
 
 namespace NerdStore.Venda.Domain
 {
-    public class PedidoItem : IEquatable<PedidoItem>
+    public class PedidoItem : Entity, IEquatable<PedidoItem>
     {
+        public Guid PedidoId { get; set; }
         public Guid ProdutoId { get; }
         public decimal ValorUnitario { get; }
         public int Quantidade { get; private set; }
         public string Titulo { get; }
         public decimal SubTotal => CalcularSubTotal();
+        
+        // EF Referencia
+        public Pedido Pedido { get; set; }
+
+        public PedidoItem()
+        {
+            
+        }
 
         public PedidoItem(Guid produtoId, string titulo, int quantidade, decimal valorUnitario)
         {
